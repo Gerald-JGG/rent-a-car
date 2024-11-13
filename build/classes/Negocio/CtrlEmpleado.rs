@@ -1,0 +1,2 @@
+negocio.CtrlEmpleado
+negocio.EmpleadoNegocio

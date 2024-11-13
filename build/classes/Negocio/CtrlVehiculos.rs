@@ -1,0 +1,2 @@
+negocio.CtrlVehiculo
+negocio.CtrlVehiculos

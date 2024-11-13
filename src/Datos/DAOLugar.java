@@ -5,11 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAOPuesto {
+public class DAOLugar {
 
-    // Método para insertar un nuevo puesto en la base de datos
-    public void insertarPuesto(String nombre) {
-        String sql = "INSERT INTO puestos (nombre) VALUES (?)";
+    // Método para insertar un nuevo lugar en la base de datos
+    public void insertarLugar(String nombre) {
+        String sql = "INSERT INTO lugares (nombre) VALUES (?)";
         
         try (Connection con = DatabaseConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -20,9 +20,9 @@ public class DAOPuesto {
         }
     }
 
-    // Método para actualizar un puesto en la base de datos
-    public void actualizarPuesto(int id, String nombre) {
-        String sql = "UPDATE puestos SET nombre = ? WHERE id = ?";
+    // Método para actualizar los datos de un lugar en la base de datos
+    public void actualizarLugar(int id, String nombre) {
+        String sql = "UPDATE lugares SET nombre = ? WHERE id = ?";
         
         try (Connection con = DatabaseConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -34,9 +34,9 @@ public class DAOPuesto {
         }
     }
 
-    // Método para eliminar un puesto de la base de datos
-    public void eliminarPuesto(int id) {
-        String sql = "DELETE FROM puestos WHERE id = ?";
+    // Método para eliminar un lugar de la base de datos
+    public void eliminarLugar(int id) {
+        String sql = "DELETE FROM lugares WHERE id = ?";
         
         try (Connection con = DatabaseConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -47,9 +47,9 @@ public class DAOPuesto {
         }
     }
 
-    // Método para obtener los datos de un puesto según su ID
-    public void obtenerPuesto(int id) {
-        String sql = "SELECT * FROM puestos WHERE id = ?";
+    // Método para obtener los datos de un lugar según su ID
+    public void obtenerLugar(int id) {
+        String sql = "SELECT * FROM lugares WHERE id = ?";
         
         try (Connection con = DatabaseConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -57,12 +57,13 @@ public class DAOPuesto {
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()) {
-                // Aquí puedes acceder a los datos del puesto y hacer algo con ellos
+                // Aquí puedes acceder a los datos del lugar y hacer algo con ellos
                 String nombre = rs.getString("nombre");
-                System.out.println("Puesto ID: " + id + ", Nombre: " + nombre);
+                System.out.println("Lugar ID: " + id + ", Nombre: " + nombre);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 }
+
